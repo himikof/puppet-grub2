@@ -1,0 +1,7 @@
+#!/bin/sh -e
+
+# Mount /boot if not already mounted
+mountpoint -q /boot || mount /boot
+
+# Update grub config
+/usr/sbin/grub2-mkconfig -o /boot/grub2/grub.cfg
