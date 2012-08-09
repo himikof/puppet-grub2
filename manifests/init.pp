@@ -42,7 +42,10 @@ class grub2 (
         name     => 'grub',
         ensure   => 'latest',
         tag      => 'buildhost',
-        require  => Portage::Keywords['grub2'],
+        require  => [
+          Portage::Keywords['grub2'], 
+          Portage::Make_conf_fragment['grub_platforms'],
+        ],
         notify   => Exec['grub-install'],
       }
 
