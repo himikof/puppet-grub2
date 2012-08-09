@@ -45,6 +45,7 @@ class grub2 (
         require  => [
           Portage::Keywords['grub2'], 
           Portage::Make_conf_fragment['grub_platforms'],
+          Concat['/etc/portage/make.conf.puppet'],
         ],
         notify   => Exec['grub-install'],
       }
