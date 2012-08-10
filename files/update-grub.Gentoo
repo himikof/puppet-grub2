@@ -1,7 +1,9 @@
 #!/bin/sh -e
 
-# Mount /boot if not already mounted
-mountpoint -q /boot || mount /boot
+if grep -e '^[^#]*\s/boot\s' /etc/fstab -q; then
+  # Mount /boot if not already mounted
+  mountpoint -q /boot || mount /boot
+fi
 
 # Update grub config
 /usr/sbin/grub2-mkconfig -o /boot/grub2/grub.cfg
