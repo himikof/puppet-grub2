@@ -24,7 +24,12 @@ class grub2 (
   $disable_linux_recovery = false,
   $init_tune = false,
 ) {
-  # Package installation
+  class { 'grub2::setup':
+    stage => 'setup',
+
+    platforms => $platforms,
+  }
+
   case $operatingsystem {
     gentoo:
     {
@@ -32,10 +37,6 @@ class grub2 (
         context  => 'grub2_grub2',
         package  => '~sys-boot/grub-2.00',
         tag      => 'buildhost'
-      }
-      $platforms_str = join($platforms, ' ')
-      portage::make_conf_fragment { 'grub_platforms':
-        value => "GRUB_PLATFORMS=\"${platforms_str}\"",
       }
       package { 'grub2':
         category => 'sys-boot',
