@@ -4,7 +4,7 @@
 # /boot/grub/grub.cfg.
 
 GRUB_DEFAULT=<%= default %>
-GRUB_TIMEOUT=<%= scope.lookupvar("::timeout") %>
+GRUB_TIMEOUT=<%= scope.lookupvar("grub2::timeout") %>
 GRUB_DISTRIBUTOR=<%= distributor %>
 GRUB_CMDLINE_LINUX_DEFAULT="<%= cmdline_linux_default %>"
 GRUB_CMDLINE_LINUX="<%= cmdline_linux %>"
