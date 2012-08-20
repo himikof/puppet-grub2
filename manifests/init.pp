@@ -38,12 +38,15 @@ class grub2 (
         package  => '~sys-boot/grub-2.00',
         tag      => 'buildhost'
       }
+      package { 'os-prober':
+        ensure => 'present',
+      }
       package { 'grub2':
         category => 'sys-boot',
         name     => 'grub',
-        ensure   => 'latest',
-        tag      => 'buildhost',
+        ensure   => 'present',
         require  => [
+          Package['os-prober'],
           Portage::Keywords['grub2'], 
           Portage::Make_conf_fragment['grub_platforms'],
           Concat['/etc/portage/make.conf.puppet'],
