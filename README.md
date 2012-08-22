@@ -13,7 +13,7 @@ The grub.cfg file is automatically regenerated after configuration changes.
 
 ### Parameters
 
-#### $default
+#### $default_entry
 
 The default menu entry. This may be a number, in which case it identifies 
 the Nth entry in the generated menu counted from zero, or the title of a menu

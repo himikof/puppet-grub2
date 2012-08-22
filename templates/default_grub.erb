@@ -3,7 +3,7 @@
 # If you change this file, run 'update-grub' afterwards to update
 # /boot/grub/grub.cfg.
 
-GRUB_DEFAULT=<%= default %>
+GRUB_DEFAULT=<%= default_entry %>
 GRUB_TIMEOUT=<%= scope.lookupvar("grub2::timeout") %>
 GRUB_DISTRIBUTOR=<%= distributor %>
 GRUB_CMDLINE_LINUX_DEFAULT="<%= cmdline_linux_default %>"

@@ -11,7 +11,7 @@ import 'stdlib'
 class grub2 (
   $device,
   $platforms = ["pc"],
-  $default = 0,
+  $default_entry = 0,
   $timeout = 5,
   $distributor = "`lsb_release -i -s 2> /dev/null || echo Unknown`",
   $cmdline_linux_default = "quiet",
